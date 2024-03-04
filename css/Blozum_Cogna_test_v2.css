@@ -404,7 +404,7 @@
 .blozum_chatbox__button button {
     padding: 5px;
     background: #fff;
-    border-radius: 25px;
+    border-radius: 50px 0 50px 50px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
