@@ -501,7 +501,7 @@
 		l.src = b;
 		stoodi.head.appendChild(l);
 
-		var z = 'https://cdn.jsdelivr.net/gh/tanmayjuneja8/Blozum_Cogna/css/Blozum_Cogna_v2.css';
+		var z = 'https://cdn.jsdelivr.net/gh/tanmayjuneja8/Blozum_Cogna/css/Blozum_Cogna_v3.css';
 		var u = stoodi.createElement('link');
 		u.rel = 'stylesheet';
 		u.type = 'text/css';
@@ -516,6 +516,958 @@
 	})('wz0pn8OSqV1mRuElcdryW98st8HdKZ6u4eM7j5kd', document);
 </script>
 
+	<!-- <script>
+					var b, l, o, z, u, m;
+						m = document.createElement('script');
+						m.src = 'https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js';
+						o = document.createElement('script');
+						o.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js';
+						document.head.appendChild(o);
+						document.head.appendChild(m);
+					
+					var z =
+						"https://cdn.jsdelivr.net/gh/tanmayjuneja8/Blozum_Cogna/css/Blozum_Cogna_test_v1.css";
+					var u = document.createElement("link");
+					u.rel = "stylesheet";
+					u.type = "text/css";
+					u.href = z;
+					document.head.appendChild(u);
+				</script>
+				<script>
+					(function (apiKey) {
+						// var initializeChatbot = function (apiKey) {
+			
+						var urlParams = new URLSearchParams(window.location.search);
+						var utmSource = urlParams.get("utm_source") || "";
+						// console.log(utmSource);
+			
+						var uuid = localStorage.getItem("uuid");
+						var ticket_created = "False";
+						var state = false,
+							blz_upsell_course = "false",
+							blz_course = "none";
+						if (!uuid) {
+							uuid = uuidv4();
+							localStorage.setItem("uuid", uuid);
+						}
+			
+						var recentMessages =
+							JSON.parse(localStorage.getItem("recentMessages")) || [];
+			
+						function updateRecentMessages(role, content) {
+							recentMessages.push({ role: role, content: content });
+							if (recentMessages.length > 8) {
+								recentMessages.shift(); // Remove the oldest message if the length exceeds 8
+							}
+							localStorage.setItem(
+								"recentMessages",
+								JSON.stringify(recentMessages)
+							);
+						}
+			
+						var blozum_container = document.createElement("div");
+						blozum_container.className = "blozum_container";
+			
+						var blozum_chatbox = document.createElement("div");
+						blozum_chatbox.className = "blozum_chatbox";
+			
+						var supportDiv = document.createElement("div");
+						supportDiv.className = "blozum_chatbox__support";
+			
+						var headerDiv = document.createElement("div");
+						headerDiv.className = "blozum_chatbox__header";
+			
+						var imageDiv = document.createElement("div");
+						imageDiv.className = "blozum_chatbox__image--header";
+						imageDiv.style.display = "flex"; // Use flexbox to center SVG (optional)
+						imageDiv.style.alignItems = "center"; // Center SVG vertically in the container (optional)
+						imageDiv.style.justifyContent = "center"; // Center SVG horizontally in the container (optional)
+						imageDiv.style.height = "100px"; // Set the height of the container (adjust as needed)
+			
+						// imageDiv.style.backgroundImage = "url('https://xol.xlri.edu/assets/xol-logo.svg')";
+						imageDiv.innerHTML = `<div style="display: flex; justify-content: center; align-items: center; border-radius: 50%; width: 50px; height: 50px;  background-image: url('https://cdn.jsdelivr.net/gh/tanmayjuneja8/Blozum_Cogna/images/unnamed.png'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>`;
+						imageDiv.style.backgroundSize = "contain"; // Make sure the image fits well within the div
+						imageDiv.style.backgroundPosition = "center"; // Center the background image within the div
+						imageDiv.style.backgroundRepeat = "no-repeat"; // Do not repeat the background image
+			
+						//imageDiv.appendChild(svgElement);
+			
+						var contentDiv = document.createElement("div");
+						contentDiv.className = "blozum_chatbox__content--header";
+			
+						var heading = document.createElement("h4");
+						heading.className = "blozum_chatbox__heading--header";
+						heading.textContent = "Atendimento Stoodi";
+			
+						contentDiv.appendChild(heading);
+			
+						headerDiv.appendChild(imageDiv);
+						headerDiv.appendChild(contentDiv);
+			
+						var messagesDiv = document.createElement("div");
+						messagesDiv.className = "blozum_chatbox__messages";
+						var innerDiv = document.createElement("div");
+						messagesDiv.appendChild(innerDiv);
+			
+						var footerDiv = document.createElement("div");
+						footerDiv.className = "blozum_chatbox__footer";
+						footerDiv.style.display = "flex";
+			
+						var input = document.createElement("input");
+						input.type = "text";
+						input.id = "BLZ_input";
+						input.placeholder = "Me pergunte aigo sobre o Stoodi...";
+						input.style.backgroundColor = "#fff";
+						input.style.margin = 0;
+						input.maxLength = 250;
+			
+						const blozum = document.createElement("div");
+						blozum.className = "blozum";
+						blozum.innerHTML =
+							"Powered by <strong><a class='link' href='https://blozum.com/'>Blozum</a></strong>";
+			
+						var sendButton = document.createElement("button");
+						sendButton.className = "blozum_chatbox__send--footer send__button_BLZ";
+						sendButton.id = "BLZ_send";
+			
+						var sendIconSVG = document.createElementNS(
+							"http://www.w3.org/2000/svg",
+							"svg"
+						);
+						sendIconSVG.setAttribute("viewBox", "-4.8 -4.8 33.60 33.60");
+						sendIconSVG.setAttribute("width", "40px");
+						sendIconSVG.setAttribute("height", "40px");
+						sendIconSVG.setAttribute("fill", "none");
+						sendIconSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+						sendIconSVG.setAttribute("stroke", "#");
+						sendIconSVG.setAttribute("stroke-width", "0.00024000000000000003");
+			
+						var sendPath = document.createElementNS(
+							"http://www.w3.org/2000/svg",
+							"path"
+						);
+						sendPath.setAttribute("fill-rule", "evenodd");
+						sendPath.setAttribute("clip-rule", "evenodd");
+						sendPath.setAttribute(
+							"d",
+							"M1.265 4.42619C1.04293 2.87167 2.6169 1.67931 4.05323 2.31397L21.8341 10.1706C23.423 10.8727 23.423 13.1273 21.8341 13.8294L4.05323 21.686C2.6169 22.3207 1.04293 21.1283 1.265 19.5738L1.99102 14.4917C2.06002 14.0087 2.41458 13.6156 2.88791 13.4972L8.87688 12L2.88791 10.5028C2.41458 10.3844 2.06002 9.99129 1.99102 9.50829L1.265 4.42619ZM21.0257 12L3.2449 4.14335L3.89484 8.69294L12.8545 10.9328C13.9654 11.2106 13.9654 12.7894 12.8545 13.0672L3.89484 15.3071L3.2449 19.8566L21.0257 12Z"
+						);
+						sendPath.setAttribute("fill", "#fff");
+			
+						sendIconSVG.appendChild(sendPath);
+						sendButton.appendChild(sendIconSVG);
+			
+						// footerDiv.appendChild(homeButton);
+						footerDiv.appendChild(input);
+						footerDiv.appendChild(sendButton);
+						footerDiv.appendChild(blozum);
+			
+						supportDiv.appendChild(headerDiv);
+						supportDiv.appendChild(messagesDiv);
+						supportDiv.appendChild(footerDiv);
+						supportDiv.appendChild(blozum);
+						blozum_chatbox.appendChild(supportDiv);
+			
+						var buttonDiv = document.createElement("div");
+						buttonDiv.className = "blozum_chatbox__button";
+						var button = document.createElement("button");
+						button.className = "blozum_button-35";
+						button.id = "chat_button";
+			
+						// button.appendChild(svgElement);
+						button.innerHTML = `<div style="display: flex; justify-content: center; align-items: center; border-radius: 50%; width: 50px; height: 50px;  background-image: url('https://cdn.jsdelivr.net/gh/tanmayjuneja8/Blozum_Cogna/images/unnamed.png'); background-size: contain; background-position: center; background-repeat: no-repeat;"></div>`;
+						buttonDiv.appendChild(button);
+			
+						//blozum_chatbox.appendChild(buttonDiv);
+			
+						blozum_container.appendChild(blozum_chatbox);
+			
+						// Append the blozum_container to the document body
+						document.body.appendChild(blozum_container);
+						document.body.appendChild(buttonDiv);
+						var openButton = document.querySelector(".blozum_chatbox__button");
+						var blozum_chatbox = document.querySelector(".blozum_chatbox__support");
+						var chat_button = document.getElementById("chat_button");
+						var messages = [];
+						var chat_history_blz = [];
+						var selectedOption = `none`;
+						var name = "";
+						var buttons = document.querySelectorAll(".blozum_button-3");
+						document.addEventListener("click", function (event) {
+							if (state) {
+								var isClickInsideblozum_chatbox = blozum_chatbox.contains(
+									event.target
+								);
+								var isClickOnOpenButton = openButton.contains(event.target);
+								var isItInsideButton = false;
+								if (event.target.className === "blozum_button-3") {
+									isItInsideButton = true;
+								}
+			
+								if (!isItInsideButton) {
+									if (!isClickInsideblozum_chatbox && !isClickOnOpenButton) {
+										toggleState(blozum_chatbox);
+									}
+								}
+							}
+						});
+						openButton.addEventListener("click", () => toggleState(blozum_chatbox));
+			
+						document
+							.querySelector(".send__button_BLZ")
+							.addEventListener("click", async () => {
+								await onSendButton(blozum_chatbox);
+							});
+			
+						var node =
+							blozum_chatbox.querySelectorAll("input")[2] ||
+							blozum_chatbox.querySelectorAll("input")[0];
+			
+						node.addEventListener("keyup", ({ key }) => {
+							if (key === "Enter") {
+								document.querySelector(".send__button_BLZ").click();
+							}
+						});
+			
+						var blozum_container12 = document.querySelector(".blozum_container");
+						// blozum_container12.style.display = 'none';
+						document.querySelectorAll(".link").forEach((link) => {
+							link.innerHTML =
+								"<div><span>" +
+								link.textContent.trim().split("").join("</span><span>") +
+								"</span></div>";
+							link
+								.querySelectorAll("span")
+								.forEach(
+									(s) =>
+										(s.innerHTML = s.textContent == " " ? "&nbsp;" : s.textContent)
+								);
+							link.insertAdjacentHTML(
+								"beforeend",
+								'<div><svg preserveAspectRatio="none" viewBox="0 0 192 5"><path d="M191.246 4H129C129 4 127.781 4.00674 127 4C114.767 3.89447 108.233 1 96 1C83.7669 1 77.2327 3.89447 65 4C64.219 4.00674 63 4 63 4H0.751923" /></svg></div>'
+							);
+						});
+			
+						function toggleState(blozum_chatbox) {
+							state = !state;
+			
+							if (state) {
+								blozum_container12.style.display = "flex";
+								setTimeout(function () {
+									blozum_container12.classList.add("visible");
+								}, 10);
+								blozum_chatbox.classList.add("blozum_chatbox--active");
+								//chat_button.style.backgroundColor = "black";
+							} else {
+								blozum_container12.classList.remove("visible");
+								setTimeout(function () {
+									blozum_container12.style.display = "none";
+								}, 500);
+								blozum_chatbox.classList.remove("blozum_chatbox--active");
+								chat_button.style.backgroundColor = "white";
+							}
+						}
+			
+						function handleReaction(clickedButton, isPositive) {
+							// Obtain both buttons
+							var thumbUpButton = document.querySelector(".blozum_thumb-up");
+							var thumbDownButton = document.querySelector(".blozum_thumb-down");
+			
+							// Disable both buttons to prevent further clicks
+			
+							if (isPositive === "true") {
+								if (clickedButton.classList.contains("blz_active")) {
+									// thumbUpButton.classList.remove("blz_active");
+									clickedButton.classList.remove("blz_active");
+								} else {
+									// thumbUpButton.classList.add("blz_active");
+									clickedButton.classList.add("blz_active");
+									thumbDownButton.classList.remove("blz_active");
+								}
+			
+								fetch(
+									"https://1age912on9.execute-api.ap-south-1.amazonaws.com/default/BLZ_Stoodi",
+									{
+										method: "POST",
+										headers: {
+											"Content-Type": "application/json",
+											"x-api-key": apiKey,
+										},
+										body: JSON.stringify({
+											message: "👍",
+											user: { uuid: uuid, name: name },
+										}),
+									}
+								)
+									.then(function (response) {
+										return response.text();
+									})
+									.then(function (botMessage) {
+										console.log(botMessage);
+									});
+							}
+							if (isPositive === "false") {
+								if (clickedButton.classList.contains("blz_active")) {
+									// thumbDownButton.classList.remove("blz_active");
+									clickedButton.classList.remove("blz_active");
+								} else {
+									// thumbDownButton.classList.add("blz_active");
+									clickedButton.classList.add("blz_active");
+									thumbUpButton.classList.remove("blz_active");
+								}
+								fetch(
+									"https://1age912on9.execute-api.ap-south-1.amazonaws.com/default/BLZ_Stoodi",
+									{
+										method: "POST",
+										headers: {
+											"Content-Type": "application/json",
+											"x-api-key": apiKey,
+										},
+										body: JSON.stringify({
+											message: "👎",
+											user: { uuid: uuid, name: name },
+										}),
+									}
+								)
+									.then(function (response) {
+										return response.text();
+									})
+									.then(function (botMessage) {
+										console.log(botMessage);
+									});
+							}
+						}
+			
+						function scrollChatToBottom() {
+							// Get the chat messages blozum_container
+							var chatMessages = blozum_chatbox.querySelector(
+								".blozum_chatbox__messages"
+							);
+			
+							// Scroll to the bottom
+							chatMessages.scrollTop = chatMessages.scrollHeight;
+						}
+			
+						async function BLZ_supp_ticket(event) {
+							event.preventDefault(); // Prevent form submission
+							name = document.getElementById("blz_user_name").value;
+							var email = document.getElementById("blz_user_email").value;
+							var course = document.getElementById("blz_course_selection").value;
+							if (!name || !email || !course) {
+								let error = document.getElementById("blz_form_error");
+								error.innerHTML =
+									"<p>Please fill the above three questions correctly.</p>";
+								error.style.display = "block"; // Show the error box
+								return;
+							}
+			
+							footerDiv.style.display = "flex";
+			
+							let payload = {
+								message: "new_user_buy_btn_registration_blozumdabest01834082340293",
+								user: uuid,
+								data: {
+									name: name,
+									email: email,
+									course: course,
+									utm_source: utmSource,
+								},
+							};
+			
+							var requestOptions = {
+								method: "POST",
+								headers: {
+									"Content-Type": "application/json",
+									"x-api-key": apiKey,
+								},
+								body: JSON.stringify(payload),
+							};
+							// var chatmessage = blozum_chatbox.querySelector(".blozum_chatbox__messages");
+							// chatmessage.innerHTML = '<div class="messages__item messages__item--visitor" id="animation_dots"><div class="typing-animation"><span class="blz_s"></span><span class="blz_s"></span><span class="blz_s"></span></div></div>' + chatmessage.innerHTML;
+							blozum_chatbox.querySelector(".visitor_menu_BLZ").style.display =
+								"none";
+							fetchChatMessage(requestOptions);
+							after_submission_BLZ(name);
+						}
+			
+						function homeButtonBLZ() {
+							var chatmessage = blozum_chatbox.querySelector(
+								".blozum_chatbox__messages"
+							);
+							if (recentMessages.length > 0) {
+								var html = loadRecentMessages();
+								footerDiv.style.display = "flex";
+							} else {
+								if (
+									!chatmessage.firstChild ||
+									!chatmessage.firstChild.classList.contains("visitor_menu_BLZ")
+								) {
+									var html = `<div class="visitor_menu_BLZ" id="blz_user_name_div">
+				      						<form onsubmit="return BLZ_supp_ticket(event);">
+				      														            <div class="flex-blozum_container">
+				                      <input type="text" id="blz_user_name" placeholder="Name *" required="true" style="margin-bottom: 10px; width: 90%;">
+				                  </div>
+				                  <div class="flex-blozum_container" id="blz_user_email_div">
+				                      <input type="email" id="blz_user_email" placeholder="Email *" required="true" style="margin-bottom: 10px; width: 90%;">
+				                  </div>
+				                  <div class="flex-blozum_container" id="blz_course_selection_div">
+				                      <select id="blz_course_selection" required="true" style="width: 90%; border: 2px solid #ccc; padding: 10px; border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: left; color: #000; margin: 0 auto; display: block; -webkit-appearance: none; -moz-appearance: none; appearance: none; background: url('data:image/svg+xml;utf8,<svg fill="%23000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 15px center/20px 20px, linear-gradient(to bottom, #ffffff 0%,#ffffff 100%);">
+				                          <option value="">Select a Course *</option>
+				                          <option value="Online PGDM in Finance">Online PGDM in Finance</option>
+				                          <option value="Online PGDM in Business Management (BM)">Online PGDM in Business Management (BM)</option>
+				                          <option value="Online PGDM in Human Resource Management (HRM)">Online PGDM in Human Resource Management (HRM)</option>
+				                      </select>
+				                  </div><br>
+				      			<div class="flex-blozum_container" id="blz_form_error"></div>
+				      			<br>
+				                      <button class="blozum_button-3" style="background:#0E6FFF; color:#fff" onClick="BLZ_supp_ticket(event);">Submit</button>
+				      		</form>
+				
+				
+				              </div>`;
+								}
+							}
+							chatmessage.innerHTML = html + chatmessage.innerHTML;
+							scrollChatToBottom();
+						}
+			
+						function after_submission_BLZ(name) {
+							var chatmessage = blozum_chatbox.querySelector(
+								".blozum_chatbox__messages"
+							);
+							if (
+								!chatmessage.firstChild ||
+								!chatmessage.firstChild.classList.contains("after_submission_BLZ")
+							) {
+								var html = `<div class="after_submission_BLZ" id="blz_user_name_div">
+				      						<div class="flex-blozum_container"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+				      <path fill="#c8e6c9" d="M36,42H12c-3.314,0-6-2.686-6-6V12c0-3.314,2.686-6,6-6h24c3.314,0,6,2.686,6,6v24C42,39.314,39.314,42,36,42z"></path><path fill="#4caf50" d="M34.585 14.586L21.014 28.172 15.413 22.584 12.587 25.416 21.019 33.828 37.415 17.414z"></path>
+				      </svg></div><div class="blz_form_success" id="blz_form_success"><p>Hey, ${name}. You may ask me anything about XLRI Online Learning now.</p></div>
+				              </div>`;
+			
+								chatmessage.innerHTML = html + chatmessage.innerHTML;
+							}
+							scrollChatToBottom();
+						}
+			
+						function fetchChatMessage(request_options) {
+							try {
+								fetch(
+									"https://1age912on9.execute-api.ap-south-1.amazonaws.com/default/BLZ_Stoodi",
+									request_options
+								)
+									.then(function (response) {
+										return response.text();
+									})
+									.then(function (response) {
+										var jsonData = JSON.parse(response);
+										if (typeof jsonData === "object") {
+											var html = `<div class="blozum_messages__item blozum_messages__item--visitor"><span class="message-content">`;
+											for (var key in jsonData) {
+												if (jsonData.hasOwnProperty(key)) {
+													if (key === "messages") {
+														html = html + jsonData[key];
+													}
+												} else {
+													html = html + jsonData[key];
+												}
+											}
+											/*html += `</span><br>
+																		 <div class="message-reaction">
+																		   <button class="thumb-up" onclick="handleReaction(this, 'true')">👍</button>
+																		   <button class="thumb-down" onclick="handleReaction(this, 'false')">👎</button>
+																		 </div></div>`;
+																	  // chatmessage = blozum_chatbox.querySelector(".blozum_chatbox__messages");
+																	  //const dotss = document.getElementById("animation_dots");
+																	  //dotss.remove();
+																	  chatmessage.innerHTML = html + chatmessage.innerHTML;*/
+										}
+									});
+							} catch (e) {
+								console.log(e);
+							}
+							scrollChatToBottom();
+						}
+			
+						// Sid's code
+						const divAction = `<div class="intercom-1i4ilvo e1q8fpwq3"><button id="back" aria-label="go back" data-testid="go-back" tabindex="0" class="action-btn"><i size="24" class="intercom-91g5kq e17z5v9w0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="m14 18-6-6 6-6"></path></svg></i></button></div>
+				          <div class="blozum">Powered by &nbsp; <strong><a class='link' href='https://blozum.com/'>Blozum</a></strong></div>
+				          <div class="intercom-1vyf8ew e1q8fpwq3"><button data-testid="toggle-expansion" id="expand-size" aria-hidden="true" tabindex="-1" class="action-btn"><i size="16" class="intercom-995ph6 e17z5v9w0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-width="1.7" d="m1.999 2 5 5"></path><path stroke="currentColor" stroke-width="1.75" d="M6.499 1.5h-5v5m7.5 2.5 5 5"></path><path stroke="currentColor" stroke-width="1.75" d="M14.499 9.5v5h-5"></path></svg></i></button><button class="action-btn" id="reduce-size" data-testid="toggle-expansion" aria-hidden="true" tabindex="-1" class="intercom-1bi8gio etxngei0"><i size="16" class="intercom-995ph6 e17z5v9w0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-width="1.7" d="m1 1 5 5"></path><path stroke="currentColor" stroke-width="1.75" d="M1.5 6.5h5v-5m3.5 8.502 5 5m-5.5-.5v-5h5"></path></svg></i></button></div>`;
+						const actionDiv = document.createElement("div");
+						actionDiv.className = "action";
+						actionDiv.innerHTML = divAction;
+						supportDiv.appendChild(actionDiv);
+						actionDiv.style.display = "none";
+						// Iframe
+						var iframe = document.createElement("iframe");
+						iframe.style.width = "100%";
+						iframe.style.height = "100%"; // Set this according to your chatbot's design
+						// iframe.src =
+						//   "https://pagamento.stoodi.com.br/2192/offer/HhhvfL/?b_id=2512&ch_id=582&b_offer=zHZhpI";
+						iframe.frameBorder = "0"; // Remove border
+						iframe.allowTransparency = "true";
+						iframe.setAttribute("allowfullscreen", "");
+						supportDiv.appendChild(iframe);
+						iframe.style.display = "none";
+						iframe.style.paddingBottom = "1rem";
+						iframe.setAttribute("id", "iframeID");
+						// Sid's code end
+			
+						async function onSendButton(blozum_chatbox) {
+							scrollChatToBottom();
+							document.querySelector("#BLZ_send").disabled = true;
+							var textField = document.getElementById("BLZ_input");
+							var text1 = textField.value;
+							if (text1 === "") {
+								return scrollChatToBottom();
+							}
+			
+							var html =
+								'<div class="blozum_messages__item blozum_messages__item--operator">' +
+								text1 +
+								"</div>";
+			
+							chat_history_blz.push({ role: "user", content: text1 });
+			
+							updateRecentMessages("user", text1);
+			
+							var chatmessage = blozum_chatbox.querySelector(
+								".blozum_chatbox__messages"
+							);
+							chatmessage.innerHTML = html + chatmessage.innerHTML;
+							chatmessage.innerHTML =
+								'<div class="blozum_messages__item blozum_messages__item--visitor" id="animation_dots"><div class="typing-animation"><span class="blz_s"></span><span class="blz_s"></span><span class="blz_s"></span></div></div>' +
+								chatmessage.innerHTML;
+							scrollChatToBottom();
+							const dotss = document.getElementById("animation_dots");
+			
+							textField.value = "";
+			
+							chatmessage = blozum_chatbox.querySelector(
+								".blozum_chatbox__messages"
+							);
+			
+							try {
+								//
+								fetch(
+									"https://1age912on9.execute-api.ap-south-1.amazonaws.com/default/BLZ_Stoodi",
+									{
+										method: "POST",
+										headers: {
+											"Content-Type": "application/json",
+											"x-api-key": apiKey,
+										},
+										body: JSON.stringify({
+											message: chat_history_blz,
+											user: uuid,
+											data: {
+												buy: blz_upsell_course,
+												course: blz_course !== "none" ? blz_course : undefined,
+											},
+										}),
+									}
+								)
+									.then(function (response) {
+										return response.text();
+									})
+									.then(function (botMessage) {
+										chatmessage = blozum_chatbox.querySelector(
+											".blozum_chatbox__messages"
+										);
+										document.querySelector("#BLZ_send").disabled = false;
+										try {
+											// response , sources, buy, buy? course
+											var jsonData = JSON.parse(botMessage);
+											dotss.remove();
+			
+											if (!jsonData.body) {
+												console.log("JSON", jsonData);
+											} else {
+												console.log("DATA", jsonData);
+											}
+			
+											let data = JSON.parse(jsonData.body);
+											console.log(data, "DATA");
+			
+											if (typeof jsonData === "object") {
+												var html = `<div class="blozum_messages__item blozum_messages__item--visitor"><span class="message-content">`;
+												if (data.sources) {
+													let obj = {};
+													data.sources.forEach((item) => {
+														obj = { ...obj, ...item };
+													});
+			
+													let titles = Object.keys(obj);
+													let links = Object.values(obj);
+													// html += `</span><br>`;
+													for (let i = 0; i < titles.length; i++) {
+														//   html += `<br/><a class="stoodi_links" href="${links[i]}" target="_blank">${titles[i]}</a>
+														// `;
+														data.response.replaceAll(
+															titles[i],
+															`<a class="stoodi_links" href="${links[i]}" target="_blank">${titles[i]}</a>`
+														);
+													}
+												}
+												chat_history_blz.push({
+													role: "assistant",
+													content: data.response,
+												});
+												updateRecentMessages(
+													"assistant",
+													data.response.replaceAll("\n", "<br>")
+												);
+												// html = html + data[key].replaceAll("\n", "<br><br>");
+												html = html + data.response;
+												// console.log(
+												//   "HERE",
+												//   jsonData[key].replaceAll("\n", "<br><br>")
+												// );
+			
+												const courseOptions = {
+													STOODIDIREITO:
+														"https://pagamento.stoodi.com.br/2190/offer/kicqGG/?b_id=2512&ch_id=582&b_offer=zHZhpI",
+													STOODITECH:
+														"https://pagamento.stoodi.com.br/2188/offer/72XgFZ/?b_id=2512&ch_id=582&b_offer=zHZhpI",
+													AVANÇADO:
+														"https://pagamento.stoodi.com.br/2153/offer/ueUCiM/?b_id=2512&ch_id=582&b_offer=zHZhpI",
+													STOODIMED:
+														"https://pagamento.stoodi.com.br/2186/offer/ynFwyr/?b_id=2512&ch_id=582&b_offer=zHZhpI",
+													STOODIENEM:
+														"https://pagamento.stoodi.com.br/2192/offer/HhhvfL/?b_id=2512&ch_id=582&b_offer=zHZhpI",
+													STOODIENG:
+														"https://pagamento.stoodi.com.br/2187/offer/sFjtce/?b_id=2512&ch_id=582&b_offer=zHZhpI",
+												};
+			
+												if (data.buy === "true") {
+													blz_upsell_course = "true";
+													blz_course = data.course;
+													html += `<br>
+				          			      <div><button class="blozum_button-3 buynow">COMEÇAR AGORA</button></div>
+				                      `;
+													chatmessage = blozum_chatbox.querySelector(
+														".blozum_chatbox__messages"
+													);
+													iframe.src = courseOptions[data.course];
+												}
+			
+												html += `</span><br>
+				          			             <div class="blozum_message-reaction react-btn">
+				          			               <button class="blozum_thumb-up" onclick="handleReaction(this, 'true')">👍</button>
+				          			               <button class="blozum_thumb-down" onclick="handleReaction(this, 'false')">👎</button>
+				          			             </div></div>`;
+												chatmessage = blozum_chatbox.querySelector(
+													".blozum_chatbox__messages"
+												);
+												chatmessage.innerHTML = html + chatmessage.innerHTML;
+			
+												// iframe.src = data.course ? data.course : undefined;
+												// Buy Now
+												let flag = false;
+												const expandSizeBtn =
+													document.querySelector("#expand-size");
+												const reduceSizeBtn =
+													document.querySelector("#reduce-size");
+												// const btn = document.querySelector("#buynow");
+												const btns = document.getElementsByClassName("buynow");
+												const isWideEnough = document.body.offsetWidth >= 1030;
+			
+												for (let i = 0; i < btns.length; i++) {
+													btns[i].onclick = function () {
+														// API Call on clicking buy now
+														let payload = {
+															message:
+																"new_user_buy_btn_registration_blozumdabest01834082340293",
+															user: uuid,
+															data: {
+																course: blz_course,
+															},
+														};
+			
+														var request_options = {
+															method: "POST",
+															headers: {
+																"Content-Type": "application/json",
+																"x-api-key": apiKey,
+															},
+															body: JSON.stringify(payload),
+														};
+														try {
+															fetch(
+																"https://1age912on9.execute-api.ap-south-1.amazonaws.com/default/BLZ_Stoodi",
+																request_options
+															)
+																.then(function (response) {
+																	return response.text();
+																})
+																.then(function (response) {
+																	var jsonData = JSON.parse(response);
+																	console.log("SUCCESSFULL SUBMISSION", jsonData);
+																	console.log("COURSE: ", blz_course);
+																});
+														} catch (e) {
+															console.log(e);
+														}
+														footerDiv.style.display = "none";
+														headerDiv.style.display = "none";
+														messagesDiv.style.display = "none";
+														actionDiv.style.display = "flex";
+														iframe.style.display = "flex";
+														blozum.style.display = "none";
+			
+														if (isWideEnough) {
+															blozum_container.style.width = `${blozum_container.offsetWidth * 2.5
+																}px`;
+															expandSizeBtn.style.display = "none";
+															reduceSizeBtn.style.display = "inline-block";
+														} else {
+															expandSizeBtn.style.display = "inline-block";
+															reduceSizeBtn.style.display = "none";
+															flag = true;
+														}
+														iframe.style.paddingLeft = "1rem";
+														iframe.style.paddingRight = "1rem";
+			
+														const backbtn = document.querySelector("#back");
+														backbtn.onclick = function () {
+															if (!flag) {
+																blozum_container.style.width = `${blozum_container.offsetWidth / 2.5
+																	}px`;
+															}
+															blozum.style.display = "flex";
+															iframe.style.paddingLeft = "0";
+															iframe.style.paddingRight = "0";
+															flag = false;
+															expandSizeBtn.style.display = "none";
+															reduceSizeBtn.style.display = "inline-block";
+			
+															footerDiv.style.display = "flex";
+															headerDiv.style.display = "flex";
+															messagesDiv.style.display = "flex";
+															iframe.style.display = "none";
+															actionDiv.style.display = "none";
+														};
+													};
+												}
+			
+												function togggleSize() {
+													if (!flag) {
+														expandSizeBtn.style.display = "inline-block";
+														reduceSizeBtn.style.display = "none";
+														blozum_container.style.width = `${blozum_container.offsetWidth / 2.5
+															}px`;
+			
+														iframe.style.paddingLeft = "0";
+														iframe.style.paddingRight = "0";
+													} else {
+														expandSizeBtn.style.display = "none";
+														reduceSizeBtn.style.display = "inline-block";
+														blozum_container.style.width = `${blozum_container.offsetWidth * 2.5
+															}px`;
+														iframe.style.paddingLeft = "1rem";
+														iframe.style.paddingRight = "1rem";
+													}
+													flag = !flag;
+												}
+												expandSizeBtn.onclick = () => {
+													togggleSize();
+												};
+												reduceSizeBtn.onclick = () => {
+													togggleSize();
+												};
+												scrollChatToBottom();
+											}
+										} catch (error) {
+											// Regular bot message
+											console.log("ERROR", error);
+											html = "";
+											dotss.remove();
+											chatmessage = blozum_chatbox.querySelector(
+												".blozum_chatbox__messages"
+											);
+											chatmessage.innerHTML = html + chatmessage.innerHTML;
+											scrollChatToBottom();
+										}
+									});
+							} catch (e) {
+								scrollChatToBottom();
+								document.querySelector("#BLZ_send").disabled = false;
+								console.error(e);
+							}
+							// dotss.remove();
+			
+							// iframe.src =
+							//   "https://pagamento.stoodi.com.br/2192/offer/HhhvfL/?b_id=2512&ch_id=582&b_offer=zHZhpI";
+							// // Buy Now
+							// let flag = false;
+							// const expandSizeBtn = document.querySelector("#expand-size");
+							// const reduceSizeBtn = document.querySelector("#reduce-size");
+							// // const btn = document.querySelector("#buynow");
+							// const btns = document.getElementsByClassName("buynow");
+			
+							// for (let i = 0; i < btns.length; i++) {
+							//   console.log("FOR LOOP");
+							//   btns[i].onclick = function () {
+							//     footerDiv.style.display = "none";
+							//     headerDiv.style.display = "none";
+							//     messagesDiv.style.display = "none";
+							//     actionDiv.style.display = "flex";
+							//     iframe.style.display = "flex";
+							//     blozum_container.style.width = `${
+							//       blozum_container.offsetWidth * 2.5
+							//     }px`;
+							//     iframe.style.paddingLeft = "1rem";
+							//     iframe.style.paddingRight = "1rem";
+							//     expandSizeBtn.style.display = "none";
+			
+							//     const backbtn = document.querySelector("#back");
+							//     backbtn.onclick = function () {
+							//       if (!flag) {
+							//         blozum_container.style.width = `${
+							//           blozum_container.offsetWidth / 2.5
+							//         }px`;
+							//       }
+							//       iframe.style.paddingLeft = "0";
+							//       iframe.style.paddingRight = "0";
+							//       flag = false;
+							//       expandSizeBtn.style.display = "none";
+							//       reduceSizeBtn.style.display = "inline-block";
+			
+							//       footerDiv.style.display = "flex";
+							//       headerDiv.style.display = "flex";
+							//       messagesDiv.style.display = "flex";
+							//       iframe.style.display = "none";
+							//       actionDiv.style.display = "none";
+							//     };
+							//   };
+							// }
+			
+							// function togggleSize() {
+							//   if (!flag) {
+							//     expandSizeBtn.style.display = "inline-block";
+							//     reduceSizeBtn.style.display = "none";
+							//     blozum_container.style.width = `${
+							//       blozum_container.offsetWidth / 2.5
+							//     }px`;
+			
+							//     iframe.style.paddingLeft = "0";
+							//     iframe.style.paddingRight = "0";
+							//   } else {
+							//     expandSizeBtn.style.display = "none";
+							//     reduceSizeBtn.style.display = "inline-block";
+							//     blozum_container.style.width = `${
+							//       blozum_container.offsetWidth * 2.5
+							//     }px`;
+							//     iframe.style.paddingLeft = "1rem";
+							//     iframe.style.paddingRight = "1rem";
+							//   }
+							//   flag = !flag;
+							// }
+							// expandSizeBtn.onclick = () => {
+							//   togggleSize();
+							// };
+							// reduceSizeBtn.onclick = () => {
+							//   togggleSize();
+							// };
+			
+							// Sid's code end
+						}
+			
+						function updateChatText(blozum_chatbox) {
+							var html = "";
+							messages
+								.slice()
+								.reverse()
+								.forEach(function (item, index) {
+									if (item.name === "Blozum") {
+										html +=
+											'<div class="blozum_messages__item blozum_messages__item--visitor"><span class="message-content">' +
+											item.message +
+											`</span><br>
+				      						             <div class="blozum_message-reaction">
+				      						               <button class="blozum_thumb-up" onclick="handleReaction(this, 'true')">👍</button>
+				      						               <button class="blozum_thumb-down" onclick="handleReaction(this, 'false')">👎</button>
+				      						             </div></div>`;
+									} else if (item.name === "User") {
+										html +=
+											'<div class="blozum_messages__item blozum_messages__item--operator">' +
+											item.message +
+											"</div>";
+									}
+								});
+							var chatmessage = blozum_chatbox.querySelector(
+								".blozum_chatbox__messages"
+							);
+							chatmessage.innerHTML = html + chatmessage.innerHTML;
+							return;
+						}
+			
+						async function update_button_click(button) {
+							try {
+								fetch(
+									"https://1age912on9.execute-api.ap-south-1.amazonaws.com/default/BLZ_Stoodi",
+									{
+										method: "POST",
+										headers: {
+											"Content-Type": "application/json",
+											"x-api-key": apiKey,
+										},
+										body: JSON.stringify({
+											message: button,
+											user: "button_click",
+										}),
+									}
+								)
+									.then(function (response) {
+										return response.text();
+									})
+									.then(function (response) {
+										var jsonData = JSON.parse(response);
+										console.log(jsonData);
+									});
+							} catch (e) {
+								console.log(e);
+							}
+							scrollChatToBottom();
+						}
+			
+						function loadRecentMessages() {
+							var html = "";
+							const tempRecentMessages = [...recentMessages];
+							const reversedMessages = [];
+							while (tempRecentMessages.length !== 0) {
+								reversedMessages.push(tempRecentMessages.pop());
+							}
+							reversedMessages.forEach(function (item) {
+								if (item.role === "assistant") {
+									html +=
+										'<div class="blozum_messages__item blozum_messages__item--visitor"><span class="message-content">' +
+										item.content +
+										`</span><br>
+				      					<div class="blozum_message-reaction">
+				      						<button class="blozum_thumb-up" onclick="handleReaction(this, 'true')">👍</button>
+				      						<button class="blozum_thumb-down" onclick="handleReaction(this, 'false')">👎</button>
+				      					</div>
+				      				</div>`;
+								} else if (item.role === "user") {
+									// Change 'item.name' to 'item.role' to match the recent messages structure
+									html +=
+										'<div class="blozum_messages__item blozum_messages__item--operator">' +
+										item.content +
+										"</div>";
+								}
+							});
+			
+							return html;
+						}
+			
+						window.homeButtonBLZ = homeButtonBLZ;
+						window.sendButton = sendButton;
+						window.handleReaction = handleReaction;
+						window.BLZ_supp_ticket = BLZ_supp_ticket;
+						//}
+					})("wz0pn8OSqV1mRuElcdryW98st8HdKZ6u4eM7j5kd"); //
+				</script> -->
 	<a class="skip-link screen-reader-text" href="#content">Pular para o conteúdo</a>
 
 	<header id="site-header" class="site-header dynamic-header " role="banner">
