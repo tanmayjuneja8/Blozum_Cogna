@@ -12,7 +12,11 @@
 .blozum_chatbox_button button:hover {
     box-shadow: #063ac3 0 0 0 3px, transparent 0 0 0 0;
 }
-
+@media screen and (max-height: 810px) and (min-width: 1024px){
+    .blozum_container {
+        bottom: 40px;
+    }
+}
 @media only screen and (min-width: 1024px) {
     .blozum_chatbox {
         width: 100%;
@@ -96,12 +100,6 @@
     .blozum_chatbox__button {
         right: 15px;
         bottom: 35px;
-    }
-}
-
-@media screen and (max-height: 810px) {
-    .blozum_container {
-        bottom: 40px;
     }
 }
 
