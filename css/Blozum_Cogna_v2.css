@@ -99,6 +99,12 @@
     }
 }
 
+@media screen and (max-height: 810px) {
+    .blozum_container {
+        bottom: 40px;
+    }
+}
+
 .blozum_image_bg {
     width: 90%;
 }
