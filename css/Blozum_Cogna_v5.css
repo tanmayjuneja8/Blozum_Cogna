@@ -350,7 +350,8 @@
 }
 
 .blozum_chatbox__heading--header {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: #fff;
 }
 
@@ -903,7 +904,7 @@
 }
 
 .blz_init_icebreaker:hover {
-    background: linear-gradient(225deg, #000318, #063ac3);
+    background: #063ac3;
     cursor: pointer;
     transform: scale(1.05);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -911,6 +912,7 @@
         0 20px 25px -5px rgba(0, 0, 0, 0.2),
         0 8px 10px -6px rgba(0, 0, 0, 0.1);
     color: #fff;
+    font-weight: bold;
 }
 
 .blz_init_icebreaker:active {
